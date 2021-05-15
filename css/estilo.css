@@ -1,0 +1,67 @@
+@import'./cores.css';
+.container{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 10vh 82vh 8vh;
+    grid-template-areas: 'header header' 'main main' 'footer footer';
+}
+
+/* main ========================================*/
+main{
+    grid-area: main;
+     background: url(../img/undraw_Access_account_re_8spm.svg) no-repeat;
+    background-size: 38%;
+    background-position:  center; 
+    position: relative;
+}
+main form{
+   
+    width: 15%;
+    height: 400px;
+    padding: 30px 20px;
+    background: white;
+    margin-left: 50%;
+    transform: translateX(-63%);
+    margin-top: 10vh;
+}
+main form h1{
+    text-align: center;
+}
+main form h1 i.fas{
+    font-size: 4rem;
+    color: #2F2E41;
+}
+main .bxBox{
+    position: relative;
+    margin-top: 40px;
+    height: 50px;
+}
+main .bxBox input{
+    width: 100%;
+    height:30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: 1px solid var(--cor1);
+    border-radius: 5px;
+    outline: none;
+    padding: 0 10px;
+}
+main .bxBox span{
+    position: absolute;
+    left: 10px;
+    top: 3px;
+    text-transform: capitalize;
+}
+main  button{
+    background: var(--cor4);
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border:1px solid var(--cor1);
+    margin-top: 60px;
+    font-weight: 700;
+}
