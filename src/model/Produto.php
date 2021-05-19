@@ -4,6 +4,7 @@ class Produto {
     private $id;
     private $nome;
     private $descricao;
+    private $teste;
     private $idFornecedor;
     // private $foto;
 
