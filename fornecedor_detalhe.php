@@ -28,6 +28,12 @@
             <label for="full-screen">
                 <i class="fas fa-bars"></i>
             </label>
+            <?php
+                include "./src/verifica.php";
+
+                $nome_usuario = $_SESSION["nome_usuario"];
+                echo "<label style='position: right; color: white'>Voce esta logado como: $nome_usuario</label>";
+            ?>
         </header>
         
         <main>

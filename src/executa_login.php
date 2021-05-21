@@ -1,9 +1,10 @@
 <?php
 // Métodos de acesso ao banco de dados
 require "fachada.php";
+include "comum.php";
 
 // Inicia sessão
-// session_start();
+session_start();
 
 $email = isset($_POST["email"]) ? addslashes(trim($_POST["email"])) : FALSE;
 $senha = isset($_POST["senha"]) ? (trim($_POST["senha"])) : FALSE;
@@ -24,6 +25,9 @@ if($usuario) {
     // Agora verifica a senha
     if(!strcmp($senha, $usuario->getSenha()))
     {
+        $_SESSION["id_usuario"] = $usuario->getId();
+        $_SESSION["nome_usuario"] = stripslashes($usuario->getNome());
+        $_SESSION["permissao_usuario"] = $usuario->getTipo();
         header("Location: ../home.php");
         exit;
     } else {

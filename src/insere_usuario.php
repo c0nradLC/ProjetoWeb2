@@ -7,6 +7,7 @@ $senhaConf = isset($_POST["senhaConf"]) ? addslashes(trim($_POST["senhaConf"])) 
 $email = isset($_POST["email"]) ? addslashes(trim($_POST["email"])) : FALSE;
 $telefone = isset($_POST["telefone"]) ? addslashes(trim($_POST["telefone"])) : FALSE;
 $cartaoCredito = isset($_POST["cartaoCredito"]) ? addslashes(trim($_POST["cartaoCredito"])) : FALSE;
+$tipo = 1;
 
 if (empty($nome) || empty($senha) || empty($senhaConf) || empty($email) || empty($telefone) || empty($cartaoCredito)){
     echo "<script type=\"text/javascript\">alert('Voce nao preencheu todos os campos, verifique novamente!')</script>"; // <-- redirecionamento nao ta funcionando, ajeitar isto.
@@ -18,7 +19,7 @@ if (strcmp($senha, $senhaConf)) {
     exit;
 }
 
-$usuario = new Usuario(null, $senha, $nome, $telefone, $email, $cartaoCredito);
+$usuario = new Usuario(null, $senha, $nome, $telefone, $email, $cartaoCredito, $tipo);
 $dao = $factory->getUsuarioDao();
 $dao->insere($usuario);
 

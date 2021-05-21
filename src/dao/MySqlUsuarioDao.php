@@ -10,8 +10,8 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
     public function insere($usuario) {
 
         $query = "INSERT INTO " . $this->table_name .
-        " (nome, senha, email, telefone, cartaocredito) VALUES" .
-        " (:nome, :senha, :email, :telefone, :cartaocredito)";
+        " (nome, senha, email, telefone, cartaocredito, tipo) VALUES" .
+        " (:nome, :senha, :email, :telefone, :cartaocredito, :tipo)";
 
         $stmt = $this->conn->prepare($query);
 
@@ -21,6 +21,7 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
         $stmt->bindValue(":email", $usuario->getEmail());
         $stmt->bindValue(":telefone", $usuario->getTelefone());
         $stmt->bindValue(":cartaocredito", $usuario->getCartaoCredito());
+        $stmt->bindValue(":tipo", $usuario->getTipo());
 
         if($stmt->execute()){
             return true;
@@ -80,7 +81,7 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
         $usuario = null;
 
         $query = "SELECT
-                    id, nome, telefone, senha, email, cartaoCredito
+                    id, nome, telefone, senha, email, cartaoCredito, tipo
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -94,7 +95,7 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if($row) {
-            $usuario = new Usuario($row['id'],$row['senha'], $row['nome'], $row['telefone'], $row['email'], $row['cartaoCredito']);
+            $usuario = new Usuario($row['id'],$row['senha'], $row['nome'], $row['telefone'], $row['email'], $row['cartaoCredito'], $row['tipo']);
         }
 
         return $usuario;
@@ -115,7 +116,7 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
-            $usuarios[] = new Usuario($row['id'],$row['senha'], $row['nome'], $row['telefone'], $row['email'], $row['cartaoCredito']);
+            $usuarios[] = new Usuario($row['id'],$row['senha'], $row['nome'], $row['telefone'], $row['email'], $row['cartaoCredito'], $row['tipo']);
         }
 
         return $usuarios;
@@ -136,7 +137,7 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if($row) {
-            $usuario = new Usuario($row['id'],$row['senha'], $row['nome'], $row['telefone'], $row['email'], $row['cartaoCredito']);
+            $usuario = new Usuario($row['id'],$row['senha'], $row['nome'], $row['telefone'], $row['email'], $row['cartaoCredito'], $row['tipo']);
         }
 
         return $usuario;
@@ -157,7 +158,7 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
-            $usuarios[] = new Usuario($row['id'],$row['senha'], $row['nome'], $row['telefone'], $row['email'], $row['cartaoCredito']);
+            $usuarios[] = new Usuario($row['id'],$row['senha'], $row['nome'], $row['telefone'], $row['email'], $row['cartaoCredito'], $row['tipo']);
         }
 
         return $usuarios;
