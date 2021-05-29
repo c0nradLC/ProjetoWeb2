@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <meta charset="UTF-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
+    <title>Home</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">-->
     <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
     <link rel="stylesheet" href="./css/style.css">
-  </head>
-  <body>
-  <input type="checkbox" name="" id="full-screen">
+</head>
+<body>
+    <input type="checkbox" name="" id="full-screen">
     <div class="container">
         <header>
             <label for="full-screen">
@@ -24,7 +24,7 @@
                 echo "<label style='position: right; color: white'>Voce esta logado como: $nome_usuario</label>";
             ?>
         </header>
-
+        
         <main>
             <section class="nav">
                 <nav>
@@ -33,7 +33,7 @@
                     </div>
                     <ul>
                         <li>
-                            <a href="home.php">
+                            <a href="home.php"  class="active">
                                 <i class="fas fa-home"></i>
                                 <span>Inicio</span></a>
                             </li>
@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="novoproduto.php" class="active">
+                            <a href="novoproduto.php">
                                 <i class="fas fa-plus-square"></i>
                                 <span>Cadastrar produto</span>
                             </a>
@@ -87,54 +87,31 @@
                     </footer>
                 </nav>
             </section>
+            <section class="main">
+                <h1>
+                    <i class="fas fa-user-plus"></i>
+                    <span>Produtos</span>
+                </h1>
+                    <div class="user">
+                        <div class="cad_user">
+                            <div class="info_user">
+                                <div class="bxUser">
+                                    <input type="text" name="nome" id="nome" placeholder="Digite o produto que você está buscando">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
         </main>
-        <div class="container">
-      <div class="card">
-        <div class="card-header">Lista de todos os produtos</div>
-        <div class="card-body">
-          <div class="form-group">
-            <input type="text" name="search_box" id="search_box" class="form-control" placeholder="Digite aqui o produto que você quer pesquisar" />
-          </div>
-          <div class="table-responsive" id="dynamic_content">
-            
-          </div>
+        
+    </div>
+    <div class="sairMain">
+        <div class="sair">
+            <p>deseja sair ?</p>
+            <button>Sair</button>
+            <button>Cancelar</button>
         </div>
-      </div>
     </div>
-  </body>
+    <script src="./js/script.js"></script>
+</body>
 </html>
-    </div>
-   
-<script>
-  $(document).ready(function(){
-
-    load_data(1);
-
-    function load_data(page, query = '')
-    {
-      $.ajax({
-        url:"",
-        method:"POST",
-        data:{page:page, query:query},
-        success:function(data)
-        {
-          $('#dynamic_content').html(data);
-        }
-      });
-    }
-
-    $(document).on('click', '.page-link', function(){
-      var page = $(this).data('page_number');
-      var query = $('#search_box').val();
-      load_data(page, query);
-    });
-
-    $('#search_box').keyup(function(){
-      var query = $('#search_box').val();
-      load_data(1, query);
-    });
-
-  });
-</script>
-
-

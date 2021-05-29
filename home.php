@@ -68,15 +68,15 @@
                                 <span>Cadastrar fornecedor</span>
                             </a>
                         </li>
-                        <li onclick="openSair()">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <span>Sair</span> 
-                        </li>
                         <li>
                             <a href="consultaprodutos.php">
                                 <i class='fas fa-truck'></i>
                                 <span>Consulta de produtos</span>
                             </a>
+                        </li>
+                        <li onclick="openSair()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span> 
                         </li>
                     </ul>
                     <footer>
