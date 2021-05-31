@@ -96,17 +96,15 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         return $produto;
     }
 
-    public function buscaPorNome($nome) {
+    public function buscaPorNome($nome, $limit, $offSet) {
 
         $produtos = array();
 
-        $query = "SELECT
-                    id, nome, descricao, idFornecedor/*, foto */
-                FROM
-                    " . $this->table_name . "
-                WHERE
-                    nome LIKE '%{$nome}%'";
-
+        $query = "SELECT id, nome, descricao, idFornecedor " ./*, foto */
+                "FROM ". $this->table_name . 
+                " WHERE UPPER(nome) LIKE '%".str_replace(' ', '%', strtoupper($nome))."%'" .
+                " ORDER BY id ASC " .
+                "LIMIT " .$offSet. ", " .$limit ;   
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
 
@@ -140,15 +138,15 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         return $produtos;
     }
 
-    public function buscaTodos() {
+    public function buscaTodos($limit, $offSet) {
 
         $produto = array();
 
-        $query = "SELECT
-                    id, nome, descricao, idFornecedor/*, foto*/
-                FROM
-                    " . $this->table_name .
-                    " ORDER BY id ASC";
+        $query = " SELECT id, nome, descricao, idFornecedor " ./*, foto*/
+                "FROM " . $this->table_name .
+                " ORDER BY id ASC " .
+                " LIMIT " .$offSet. ", " .$limit;
+
 
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
@@ -159,6 +157,29 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         }
 
         return $produto;
+    }
+
+    public function buscaQtdProdutos()
+    {
+        $query = " SELECT id, nome, descricao, idFornecedor " ./*, foto*/
+        "FROM " . $this->table_name;
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+        $qtd_produtos = $statement->rowCount();
+        return $qtd_produtos;
+    }
+
+    public function buscaQtdProdutosComWhere($nome)
+    {
+        $query = "SELECT id, nome, descricao, idFornecedor " ./*, foto */
+                "FROM ". $this->table_name . 
+                " WHERE UPPER(nome) LIKE '%".str_replace(' ', '%', strtoupper($nome))."%'";
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+        $qtd_produtos = $statement->rowCount();
+        return $qtd_produtos;
     }
 }
 ?>

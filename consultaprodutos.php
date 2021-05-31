@@ -98,6 +98,9 @@
                                 <div class="bxUser">
                                     <input type="text" name="nome" id="nome" placeholder="Digite o produto que você está buscando">
                                 </div>
+                                <div class="table-responsive" id="dynamic_content">
+            
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -115,3 +118,34 @@
     <script src="./js/script.js"></script>
 </body>
 </html>
+<script>
+  $(document).ready(function(){
+
+    load_data(1);
+
+    function load_data(page, query = '')
+    {
+      $.ajax({
+        url:"busca_produtos.php",
+        method:"POST",
+        data:{page:page, query:query},
+        success:function(data)
+        {
+          $('#dynamic_content').html(data);
+        }
+      });
+    }
+
+    $(document).on('click', '.page-link', function(){
+      var page = $(this).data('page_number');
+      var query = $('#nome').val();
+      load_data(page, query);
+    });
+
+    $('#nome').keyup(function(){
+      var query = $('#nome').val();
+      load_data(1, query);
+    });
+
+  });
+</script>
