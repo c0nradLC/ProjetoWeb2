@@ -96,7 +96,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         return $produto;
     }
 
-    public function buscaPorNome($nome, $limit, $offSet) {
+    public function buscaPorNome($nome, $limit=10, $offSet=0) {
 
         $produtos = array();
 
@@ -138,7 +138,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         return $produtos;
     }
 
-    public function buscaTodos($limit, $offSet) {
+    public function buscaTodos($limit=10, $offSet=0) {
 
         $produto = array();
 
