@@ -28,7 +28,7 @@
                     <i class="fas fa-user-plus"></i>
                     <span>Novo produto</span>
                 </h1>
-                <form action="./src/insere_produto.php" method="POST" role="form">
+                <form action="./src/insere_produto.php" method="POST" role="form" enctype="multipart/form-data">
                     <div class="user">
                         <div class="cad_user">
                             <div class="info_user">
@@ -37,6 +37,9 @@
                                 </div>
                                 <div class="bxUser">
                                     <input type="text" name="descricao" id="descricao" placeholder="Descrição">
+                                </div>
+                                <div>
+                                    <input type="file" id="Arquivo" name="Arquivo" multiple />
                                 </div>
                                 <div>
                                 <label for="idFornecedor">Selecione um fornecedor:</label>
