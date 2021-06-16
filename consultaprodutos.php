@@ -126,7 +126,7 @@
     function load_data(page, query = '')
     {
       $.ajax({
-        url:"busca_produtos.php",
+        url:"../src/busca_produtos.php",
         method:"POST",
         data:{page:page, query:query},
         success:function(data)
