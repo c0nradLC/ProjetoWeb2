@@ -1,5 +1,5 @@
 <?php
-include_once "fachada.php";
+include_once "../fachada.php";
 
 // Seleciona o nome temporário do arquivo, ganho durante o upload da imagem
 $nome_temporario=$_FILES["Arquivo"]["tmp_name"];
@@ -27,7 +27,7 @@ $produto = new Produto(null, $nome, $descricao, $idFornecedor, $caminho_nome_ima
 $dao = $factory->getProdutoDao();
 $dao->insere($produto);
 
-header("Location: ../estoque.php");
+header("Location: ../view/estoque.php");
 exit;
 
 ?>

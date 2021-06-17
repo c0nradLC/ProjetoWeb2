@@ -26,7 +26,6 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         }else{
             return false;
         }
-
     }
 
     public function removePorId($id) {

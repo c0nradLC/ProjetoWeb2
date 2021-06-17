@@ -1,5 +1,5 @@
 <?php
-include_once "fachada.php";
+include_once "../fachada.php";
 
 $idProduto = isset($_POST["txtIdProduto"]) ? addslashes(trim($_POST["txtIdProduto"])) : FALSE;
 $quantidade = isset($_POST["txtQtdProduto"]) ? addslashes(trim($_POST["txtQtdProduto"])) : FALSE;
@@ -23,7 +23,7 @@ $estoque = new Estoque($idProduto, $preco, $quantidade);
 $dao = $factory->getEstoqueDao();
 $dao->salva($estoque);
 
-header("Location: ../controle_estoque.php");
+header("Location: ../view/controle_estoque.php");
 exit;
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-include_once "fachada.php";
+include_once "../fachada.php";
 include_once "verifica.php";
 
 $acoes_permitidas = array('adicionar','excluir','aplicar-desconto','limpar-carrinho','cadastrar_produto');

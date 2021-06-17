@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar-se</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <input type="checkbox" name="" id="full-screen">
@@ -40,7 +40,7 @@
                     <i class="fas fa-user-plus"></i>
                     <span>Novo usuário</span>
                 </h1>
-                <form action="./src/insere_usuario.php" method="POST" role="form">
+                <form action="../controller/insere_usuario.php" method="POST" role="form">
                     <div class="user">
                         <div class="cad_user">
                             <div class="info_user">
@@ -81,6 +81,6 @@
             <button>Cancelar</button>
         </div>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 </html>

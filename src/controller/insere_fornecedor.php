@@ -1,5 +1,5 @@
 <?php
-include_once "fachada.php";
+include_once "../fachada.php";
 
 $nome = isset($_POST["nome"]) ? addslashes(trim($_POST["nome"])) : FALSE;
 $descricao = isset($_POST["descricao"]) ? addslashes(trim($_POST["descricao"])) : FALSE;
@@ -15,7 +15,7 @@ $fornecedor = new Fornecedor(null, $nome, $descricao, $telefone, $email);
 $dao = $factory->getFornecedorDao();
 $dao->insere($fornecedor);
 
-header("Location: ../fornecedores.php");
+header("Location: ../view/fornecedores.php");
 exit;
 
 ?>

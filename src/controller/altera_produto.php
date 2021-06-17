@@ -1,5 +1,5 @@
 <?php
-include_once "fachada.php";
+include_once "../fachada.php";
 
 $id = @$_GET['id'];
 $nome = @$_POST["nome"];
@@ -15,7 +15,7 @@ $produto = new Produto($id, $nome, $descricao, $idFornecedor);
 $dao = $factory->getProdutoDao();
 $dao->altera($produto);
 
-header("Location: ../estoque.php");
+header("Location: ../view/estoque.php");
 exit;
 
 ?>

@@ -5,7 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo $page_title; ?></title>
-	<link rel="stylesheet" type="text/css" href="libs/css/custom3.css">
+	<link rel="stylesheet" type="text/css" href="libs/css/custom3.c
+	ss">
 	
 	<!-- Latest compiled and minified Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />

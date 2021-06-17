@@ -1,4 +1,4 @@
-<?php require_once('./src/funcoes_carrinho.php'); ?>
+<?php require_once('../controller/funcoes_carrinho.php'); ?>
 <?php //print_r( getCarrinho() ); ?>
 <?php
 // require_once('database/consultas.php');
@@ -16,7 +16,7 @@
 
 	<!-- CDN do bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- se tirar essa linha a pagina pega a tela inteira porém outras coisas param de funcionar  -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -24,7 +24,7 @@
 	<div class="container">
     <header>
         <?php
-            include "./src/verifica.php";
+			include "../controller/verifica.php";
             include_once "usuario_logado.php";
         ?>
     </header>

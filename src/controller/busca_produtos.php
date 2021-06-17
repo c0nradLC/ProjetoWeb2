@@ -1,6 +1,6 @@
 <?php
 
-include_once "fachada.php";
+include_once "../fachada.php";
 
 $dao = $factory->getProdutoDao();
 $quantidade_registros = 0;

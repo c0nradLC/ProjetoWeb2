@@ -1,5 +1,5 @@
 <?php
-    include "./src/fachada.php";
+    include "../fachada.php";
 
     $produtoId = $_GET['id'];
     $dao = $factory->getProdutoDao();
@@ -20,7 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produto</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <input type="checkbox" name="" id="full-screen">
@@ -30,8 +30,8 @@
                 <i class="fas fa-bars"></i>
             </label>
             <?php
-                include "./src/verifica.php";
-                include_once "usuario_logado.php";
+			include "../controller/verifica.php";
+            include_once "usuario_logado.php";
             ?>
         </header>
         
@@ -44,7 +44,7 @@
                     <i class="fas fa-user-plus"></i>
                     <span>Produto</span>
                 </h1>
-                <form action="./src/altera_produto.php?id=<?php echo $produtoId; ?>" method="POST" role="form">
+                <form action="../controller/altera_produto.php?id=<?php echo $produtoId; ?>" method="POST" role="form">
                     <div class="user">
                         <div class="cad_user">
                             <div class="info_user">
@@ -98,6 +98,6 @@
             <button>Cancelar</button>
         </div>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 </html>

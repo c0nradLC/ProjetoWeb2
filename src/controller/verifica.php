@@ -13,7 +13,7 @@ if(!isset($_SESSION["id_usuario"]) || !isset($_SESSION["nome_usuario"]))
 {
     error_log("SEM USUÀRIO LOGADO - Voltando para Login");
     // Usuário não logado
-    header("Location: ./login.html");
+    header("Location: ../view/login.html");
     exit;
 }
 ?>

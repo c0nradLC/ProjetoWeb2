@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuários</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <input type="checkbox" name="" id="full-screen">
@@ -14,8 +14,8 @@
                 <i class="fas fa-bars"></i>
             </label>
             <?php
-                include "./src/verifica.php";
-                include_once "usuario_logado.php";
+			include "../controller/verifica.php";
+            include_once "usuario_logado.php";
             ?>
         </header>
         
@@ -56,7 +56,7 @@
                         <tbody>
                         <?php
                                             
-                            include_once "./src/fachada.php";
+                            include_once "../fachada.php";
 
                             $dao = $factory->getUsuarioDao();
                             $usuarios = null;
@@ -154,6 +154,6 @@
             <button>Cancelar</button>
         </div>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 </html>

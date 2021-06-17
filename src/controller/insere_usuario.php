@@ -1,5 +1,5 @@
 <?php
-include_once "fachada.php";
+include_once "../fachada.php";
 
 $nome = isset($_POST["nome"]) ? addslashes(trim($_POST["nome"])) : FALSE;
 $senha = isset($_POST["senha"]) ? addslashes(trim($_POST["senha"])) : FALSE;
@@ -23,7 +23,7 @@ $usuario = new Usuario(null, $senha, $nome, $telefone, $email, $cartaoCredito, $
 $dao = $factory->getUsuarioDao();
 $dao->insere($usuario);
 
-header("Location: ../index.php");
+header("Location: ../view/index.php");
 exit;
 
 ?>

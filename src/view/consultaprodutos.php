@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">-->
     <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <input type="checkbox" name="" id="full-screen">
@@ -18,8 +18,8 @@
                 <i class="fas fa-bars"></i>
             </label>
             <?php
-                include "./src/verifica.php";
-                include_once "usuario_logado.php";
+			include "../controller/verifica.php";
+            include_once "usuario_logado.php";
             ?>
         </header>
         
@@ -55,7 +55,7 @@
             <button>Cancelar</button>
         </div>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 </html>
 <script>
@@ -66,7 +66,7 @@
     function load_data(page, query = '')
     {
       $.ajax({
-        url:"../src/busca_produtos.php",
+        url:"../controller/busca_produtos.php",
         method:"POST",
         data:{page:page, query:query},
         success:function(data)

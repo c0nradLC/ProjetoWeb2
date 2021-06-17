@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="stylesheet" href="../../css/estilo.css">
 </head>
 <body>
     <div class="container">
@@ -15,7 +15,7 @@
         </header>
         <nav></nav>
         <main>
-            <form action="./src/executa_login.php" method="POST" role="form">
+            <form action="../controller/executa_login.php" method="POST" role="form">
                 <div class="bxBox">
                     <input type="text" name="email" id="email" placeholder="E-mail">
                 </div>
@@ -34,6 +34,6 @@
             <p></p>
         </footer>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 </html>
