@@ -105,7 +105,7 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
 
         $usuarios = array();
         $query = "SELECT
-                    id, nome, telefone, senha, email, cartaoCredito
+                    id, nome, telefone, senha, email, cartaoCredito, tipo
                     FROM
                         " . $this->table_name . "
                     WHERE nome LIKE '%{$nome}%'";
@@ -127,7 +127,7 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
         $usuario = null;
 
         $query = "SELECT
-                    id, nome, telefone, senha, email, cartaoCredito
+                    id, nome, telefone, senha, email, cartaoCredito, tipo
                     FROM " . $this->table_name . "
                     WHERE email = ?";
 
@@ -148,7 +148,7 @@ class MySqlUsuarioDao extends MySqlDao implements UsuarioDao {
         $usuarios = array();
 
         $query = "SELECT
-                    id, nome, telefone, senha, email, cartaoCredito
+                    id, nome, telefone, senha, email, cartaoCredito, tipo
                 FROM
                     " . $this->table_name .
                     " ORDER BY id ASC";

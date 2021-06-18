@@ -34,7 +34,7 @@
         ?>
         <section class="main">
 		</br>
-		<a href="index.php" class="btn btn-warning" role="button">Produtos</a>
+		<a href="estoque.php" class="btn btn-warning" role="button">Produtos</a>
 		<a href="carrinho.php" class="btn btn-danger" role="button">Meu Carrinho</a>
 		<h1 class="display-1">Produtos do Carrinho</h1>
 		<hr>
