@@ -8,6 +8,7 @@ $email = @$_POST["email"];
 $cartaoCredito = @$_POST["cartaoCredito"];
 $senha = @$_POST["senha"];
 $senhaConf = @$_POST["senhaConf"];
+$tipo = 1;
 
 if (empty($nome) || empty($senha) || empty($senhaConf) || empty($email) || empty($telefone) || empty($cartaoCredito)){
     echo "<script type=\"text/javascript\">alert('Voce nao preencheu todos os campos, verifique novamente!')</script>";
@@ -19,7 +20,7 @@ if (strcmp($senha, $senhaConf)) {
     exit;
 }
 
-$usuario = new Usuario($id, $senha, $nome, $telefone, $email, $cartaoCredito);
+$usuario = new Usuario($id, $senha, $nome, $telefone, $email, $cartaoCredito, $tipo);
 $dao = $factory->getUsuarioDao();
 $dao->altera($usuario);
 

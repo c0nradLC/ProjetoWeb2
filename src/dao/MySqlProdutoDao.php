@@ -165,7 +165,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
 
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
-        $qtd_produtos = $statement->rowCount();
+        $qtd_produtos = $stmt->rowCount();
         return $qtd_produtos;
     }
 
@@ -177,7 +177,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
 
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
-        $qtd_produtos = $statement->rowCount();
+        $qtd_produtos = $stmt->rowCount();
         return $qtd_produtos;
     }
 }
