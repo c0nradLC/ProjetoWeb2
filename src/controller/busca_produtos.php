@@ -20,22 +20,22 @@ else
 
 if($_POST['query'] == '')
 {
-  $produtos_buscados = $dao->buscaTodos($limit, $offSet);
+  $produtos_buscados = $dao->buscaTodos($limit, $start);
   $quantidade_total_registros_encontrados = $dao->buscaQtdProdutos();
 }
 else
 {
-  $produtos_buscados = $dao->buscaPorNome($_POST['query'], $limit, $offSet);
-  $quantidade_registros = $dao->buscaQtdProdutosComWhere($_POST['query']);
+  $produtos_buscados = $dao->buscaPorNome($_POST['query'], $limit, $start);
+  $quantidade_total_registros_encontrados = $dao->buscaQtdProdutosComWhere($_POST['query']);
 }
 
 $output = '
 <label>Quantidade de Registros - '.$quantidade_total_registros_encontrados.'</label>
 <table class="table table-striped table-bordered">
   <tr>
-    <th>ID</th>
-    <th>Nome</th>
+    <th>NOME</th>
     <th>DESCRICAO</th>
+    <th>FOTO</th>
   </tr>
 ';
 if($quantidade_total_registros_encontrados > 0)
@@ -44,9 +44,9 @@ if($quantidade_total_registros_encontrados > 0)
   {
     $output .= '
     <tr>
-      <td>'.$row["id"].'</td>
-      <td>'.$row["nome"].'</td>
-      <td>'.$row["login"].'</td>
+      <td>'.$row->getNome().'</td>
+      <td>'.$row->getDescricao().'</td>
+      <td>'.$row->getFoto().'</td>
     </tr>
     ';
   }
