@@ -50,10 +50,10 @@
     echo "                    <span>Consulta de produtos</span>";
     echo "                </a>";
     echo "            </li>";
-    echo "            <li onclick=\"openSair()\">";
-    echo "                    <i class=\"fas fa-sign-out-alt\"></i>";
-    echo "                    <span>Sair</span> ";
-    echo "            </li>";
+    echo "              <a href=\"../controller/executa_logout.php\">";
+    echo "                      <i class=\"fas fa-sign-out-alt\"></i>";
+    echo "                      <span>Sair</span> ";
+    echo "              </a>";
     echo "        </ul>";
     echo "        <footer>";
     echo "            <p></p>";

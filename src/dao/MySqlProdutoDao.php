@@ -10,7 +10,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
     public function insere($produto) {
 
         $query = "INSERT INTO " . $this->table_name .
-        " (nome, descricao, idFornecedor, foto) VALUES" . //Adicionar a parte do foto = :foto quando for o momento.
+        " (nome, descricao, idFornecedor, foto) VALUES" .
         " (:nome, :descricao, :idFornecedor, :foto)";
 
         $stmt = $this->conn->prepare($query);
@@ -77,7 +77,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         $produto = null;
 
         $query = "SELECT
-                    id, nome, descricao, idFornecedor/*, foto*/
+                    id, nome, descricao, idFornecedor, foto
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -95,11 +95,25 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         return $produto;
     }
 
+    public function buscaPorIdParaCarrinho($id) {
+        
+        $query = "SELECT id, nome, foto, preco
+                FROM " . $this->table_name . 
+                " LEFT JOIN estoque ON estoque.idProduto = produto.id WHERE produto.id = ?";
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row;
+    }
+
     public function buscaPorNome($nome, $limit=10, $offSet=0) {
 
         $produtos = array();
 
-        $query = "SELECT id, nome, descricao, idFornecedor " ./*, foto */
+        $query = "SELECT id, nome, descricao, idFornecedor, foto " .
                 "FROM ". $this->table_name . 
                 " WHERE UPPER(nome) LIKE '%".str_replace(' ', '%', strtoupper($nome))."%'" .
                 " ORDER BY id ASC " .
@@ -120,7 +134,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         $produtos = array();
 
         $query = "SELECT
-                    id, nome, descricao, idFornecedor/*, foto*/
+                    id, nome, descricao, idFornecedor, foto
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -141,7 +155,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
 
         $produto = array();
 
-        $query = " SELECT id, nome, descricao, idFornecedor " ./*, foto*/
+        $query = " SELECT id, nome, descricao, idFornecedor, foto " .
                 "FROM " . $this->table_name .
                 " ORDER BY id ASC " .
                 " LIMIT " .$offSet. ", " .$limit;
@@ -160,7 +174,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
 
     public function buscaQtdProdutos()
     {
-        $query = " SELECT id, nome, descricao, idFornecedor " ./*, foto*/
+        $query = " SELECT id, nome, descricao, idFornecedor, foto " .
         "FROM " . $this->table_name;
 
         $stmt = $this->conn->prepare( $query );
@@ -171,7 +185,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
 
     public function buscaQtdProdutosComWhere($nome)
     {
-        $query = "SELECT id, nome, descricao, idFornecedor " ./*, foto */
+        $query = "SELECT id, nome, descricao, idFornecedor, foto " .
                 "FROM ". $this->table_name . 
                 " WHERE UPPER(nome) LIKE '%".str_replace(' ', '%', strtoupper($nome))."%'";
 

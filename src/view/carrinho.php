@@ -26,6 +26,7 @@
         <?php
 			include "../controller/verifica.php";
             include_once "usuario_logado.php";
+			include_once "../fachada.php";
         ?>
     </header>
     <main>
@@ -58,10 +59,10 @@
 			   	foreach($carrinho as $item):
 			   	?>
 				<tr>
-					<td><img src="<?php echo $item['foto']  ?>" width="40"></td>
-					<td><h5><?php echo $item['produto']  ?></h5></td>
-					<td>R$ <?php echo $item['preco'] ?></td>
-					<td><a href="gerencia-carrinho.php?acao=excluir&id=<?php echo $item['id'];?>" class="btn btn-danger ">Excluir</a></td>
+					<td><img src=<?php $caminho = $item['foto'];echo ".$caminho";  ?>></td>
+					<td><h5><?php echo $item['nome']  ?></h5></td>
+					<td>R$ <?php echo $item['preco']; ?></td>
+					<td><a href="../controller/gerencia_carrinho.php?acao=excluir&id=<?php echo $item['id'];?>" class="btn btn-danger ">Excluir</a></td>
 				</tr>
 			  <?php endforeach; endif; ?>
 			</tbody>
@@ -81,7 +82,7 @@
 							Desconto: 
 						</td>
 						<td colspan="2">
-							<form action="gerencia-carrinho.php">
+							<form action="../controller/gerencia_carrinho.php">
 								<input type="hidden" value="aplicar-desconto" name="acao">
 								<input type="text" name="desconto" class="form-control">
 							</form>
@@ -90,7 +91,7 @@
 					<tr>
 						<td colspan="2" class="text-right">
 							<samp class="foat-left">
-								<a href="gerencia-carrinho.php?acao=limpar-carrinho">Limpar Carrinho</a>
+								<a href="../controller/gerencia_carrinho.php?acao=limpar-carrinho">Limpar Carrinho</a>
 							</samp>
 							Valor Final: 
 						</td>

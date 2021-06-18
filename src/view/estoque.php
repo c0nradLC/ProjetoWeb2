@@ -47,6 +47,7 @@
                         <tr>
                             <th></th>
                             <th></th>
+                            <th></th>
                             <th>Nome</th>
                             <th>Descrição</th>
                             <th>Nome do fornecedor</th>
@@ -89,6 +90,7 @@
                                             echo "<tr>";
                                             echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='usuario_detalhe.php?id=$produtoId'><i class='fas fa-pencil-alt' onclick=/></a></td>";
                                             echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='./src/remove_usuario.php?id=$produtoId'><i class='fas fa-trash-alt'/></a></td>";
+                                            echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='../controller/gerencia_carrinho.php?acao=adicionar&id=$produtoId'><i class='fas fa-cart-plus'/></a></td>";
                                             echo "<td>" . $produto->getNome() . "</td>";
                                             echo "<td>" . $produto->getDescricao() . "</td>";
                                             echo "<td>" . $fornecedorNome . "</td>";
@@ -125,6 +127,7 @@
                                 echo "<tr>";
                                 echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='produto_detalhe.php?id=$produtoId'><i class='fas fa-pencil-alt' onclick=/></a></td>";
                                 echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='./src/remove_produto.php?id=$produtoId'><i class='fas fa-trash-alt'/></a></td>";
+                                echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='../controller/gerencia_carrinho.php?acao=adicionar&id=$produtoId'><i class='fas fa-cart-plus'/></a></td>";
                                 echo "<td>" . $produto->getNome() . "</td>";
                                 echo "<td>" . $produto->getDescricao() . "</td>";
                                 echo "<td>" . $fornecedor->getNome() . "</td>";

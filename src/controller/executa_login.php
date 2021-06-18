@@ -9,7 +9,6 @@ session_start();
 $email = isset($_POST["email"]) ? addslashes(trim($_POST["email"])) : FALSE;
 $senha = isset($_POST["senha"]) ? (trim($_POST["senha"])) : FALSE;
 
-
 if(!$email || !$senha)
 {
     echo "Você deve digitar sua senha e email!<br>"; //Tentar mostrar algo mais bonito.
@@ -23,13 +22,12 @@ $usuario = $dao->buscaPorEmail($email);
 $problemas = FALSE;
 if($usuario) {
     // Agora verifica a senha
-    if(!strcmp($senha, $usuario->getSenha()))
+    if(strcmp($senha, $usuario->getSenha()) == 0)
     {
         $_SESSION["id_usuario"] = $usuario->getId();
         $_SESSION["nome_usuario"] = stripslashes($usuario->getNome());
         $_SESSION["permissao_usuario"] = $usuario->getTipo();
         header("Location: ../view/home.php");
-        exit;
     } else {
         $problemas = TRUE;
     }

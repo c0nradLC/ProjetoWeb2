@@ -27,7 +27,7 @@
                     <span>Controle de estoque</span>
                 </h1>
                 <section>
-                <form action="./src/controla_estoque.php" method="POST">
+                <form action="../controller/controla_estoque.php" method="POST">
                     <div>
                         <label for="txtIdProduto">Id do produto:</label>
                         <input id="txtIdProduto" name="txtIdProduto" type="text">
@@ -38,7 +38,7 @@
                     </div>
                     <div>
                         <label for="txtPrecoProduto">Preço:</label>
-                        <input id="txtPrecoProduto" name="txtPrecoProduto" type="number">
+                        <input id="txtPrecoProduto" name="txtPrecoProduto" type="float">
                     </div>
                     <div>
                         <button type="submit">Salvar</button>
