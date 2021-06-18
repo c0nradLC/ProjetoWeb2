@@ -95,23 +95,22 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         return $produto;
     }
 
-    public function buscaPorNome($nome, $limit=10, $offSet=0) {
+    public function buscaPorNome($nome, $limit, $offSet) {
 
         $produtos = array();
 
-        $query = "SELECT id, nome, descricao, idFornecedor " ./*, foto */
+        $query = "SELECT id, nome, descricao, idFornecedor, foto " .
                 "FROM ". $this->table_name . 
                 " WHERE UPPER(nome) LIKE '%".str_replace(' ', '%', strtoupper($nome))."%'" .
                 " ORDER BY id ASC " .
-                "LIMIT " .$offSet. ", " .$limit ;   
-        $stmt = $this->conn->prepare( $query );
+                "LIMIT " .$limit. " OFFSET " .$offSet;   
+        $stmt = $this->conn->prepare($query);
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
-            $produtos[] = new Produto($row['id'],$row['nome'], $row['descricao'], $row['idFornecedor'], null/*, $row['foto']*/);
+            $produtos[] = new Produto($row['id'],$row['nome'], $row['descricao'], $row['idFornecedor'], $row['foto']);
         }
-
         return $produtos;
     }
 
@@ -137,14 +136,14 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
         return $produtos;
     }
 
-    public function buscaTodos($limit=10, $offSet=0) {
+    public function buscaTodos($limit, $offSet) {
 
         $produto = array();
 
-        $query = " SELECT id, nome, descricao, idFornecedor " ./*, foto*/
+        $query = " SELECT id, nome, descricao, idFornecedor, foto " . 
                 "FROM " . $this->table_name .
                 " ORDER BY id ASC " .
-                " LIMIT " .$offSet. ", " .$limit;
+                "LIMIT " .$limit. " OFFSET " .$offSet;
 
 
         $stmt = $this->conn->prepare( $query );
@@ -152,7 +151,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
-            $produto[] = new Produto($row['id'],$row['nome'], $row['descricao'], $row['idFornecedor'], null/*, $row['foto']*/);
+            $produto[] = new Produto($row['id'],$row['nome'], $row['descricao'], $row['idFornecedor'], $row['foto']);
         }
 
         return $produto;
@@ -165,19 +164,19 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
 
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
-        $qtd_produtos = $statement->rowCount();
+        $qtd_produtos = $stmt->rowCount();
         return $qtd_produtos;
     }
 
     public function buscaQtdProdutosComWhere($nome)
     {
-        $query = "SELECT id, nome, descricao, idFornecedor " ./*, foto */
+        $query = "SELECT id, nome, descricao, idFornecedor, foto " .
                 "FROM ". $this->table_name . 
                 " WHERE UPPER(nome) LIKE '%".str_replace(' ', '%', strtoupper($nome))."%'";
 
-        $stmt = $this->conn->prepare( $query );
+        $stmt = $this->conn->prepare($query);
         $stmt->execute();
-        $qtd_produtos = $statement->rowCount();
+        $qtd_produtos = $stmt->rowCount();
         return $qtd_produtos;
     }
 }
