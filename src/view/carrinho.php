@@ -35,7 +35,7 @@
         ?>
         <section class="main">
 		</br>
-		<a href="estoque.php" class="btn btn-warning" role="button">Produtos</a>
+		<a href="consultaprodutos.php" class="btn btn-warning" role="button">Produtos</a>
 		<a href="carrinho.php" class="btn btn-danger" role="button">Meu Carrinho</a>
 		<h1 class="display-1">Produtos do Carrinho</h1>
 		<hr>
@@ -45,6 +45,7 @@
 					<th></th>
 					<th>Produto</th>
 					<th>Valor</th>
+					<th>Quantidade</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -62,6 +63,7 @@
 					<td><img src=<?php $caminho = $item['foto'];echo ".$caminho";  ?>></td>
 					<td><h5><?php echo $item['nome']  ?></h5></td>
 					<td>R$ <?php echo $item['preco']; ?></td>
+					<td></td>
 					<td><a href="../controller/gerencia_carrinho.php?acao=excluir&id=<?php echo $item['id'];?>" class="btn btn-danger ">Excluir</a></td>
 				</tr>
 			  <?php endforeach; endif; ?>
@@ -102,6 +104,8 @@
 				</tfoot>
 			<?php endif?>
 		</table>
+		<div class="col-md-10 col-lg-10" style="text-align: right"></div>
+		<a href="../controller/encerrar_pedido.php" class="btn btn-success" role="button">Encerrar pedido</button>
 	</div>
     </section>
     </main>

@@ -33,6 +33,7 @@ $output = '
 <label>Quantidade de Registros - '.$quantidade_total_registros_encontrados.'</label>
 <table class="table table-striped table-bordered">
   <tr>
+    <th>Adicionar Produto</th>
     <th>NOME</th>
     <th>DESCRICAO</th>
     <th>FOTO</th>
@@ -44,9 +45,10 @@ if($quantidade_total_registros_encontrados > 0)
   {
     $output .= '
     <tr>
+      <td><a href='.'../controller/gerencia_carrinho.php?acao=adicionar&id='.$row->getId().'><span>Adicionar</span></a></td>
       <td>'.$row->getNome().'</td>
       <td>'.$row->getDescricao().'</td>
-      <td>'.$row->getFoto().'</td>
+      <td><a href='.'../controller/gerencia_carrinho.php?acao=adicionar&id='.$row->getId().'><img src=.'.$row->getFoto().'></a></img></td>
     </tr>
     ';
   }
