@@ -63,7 +63,7 @@
 					<td><img src=<?php $caminho = $item['foto'];echo ".$caminho";  ?>></td>
 					<td><h5><?php echo $item['nome']  ?></h5></td>
 					<td>R$ <?php echo $item['preco']; ?></td>
-					<td></td>
+					<td><?php echo $item['quantidade']; ?></td>
 					<td><a href="../controller/gerencia_carrinho.php?acao=excluir&id=<?php echo $item['id'];?>" class="btn btn-danger ">Excluir</a></td>
 				</tr>
 			  <?php endforeach; endif; ?>
@@ -100,7 +100,7 @@
 						<td colspan="2">
 							R$ <?php aplicar_desconto($total); echo number_format($total, 2, ',', ''); ?>
 						</td>
-					</tr>			
+					</tr>
 				</tfoot>
 			<?php endif?>
 		</table>
