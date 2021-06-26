@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 23, 2021 at 01:56 AM
+-- Generation Time: Jun 26, 2021 at 01:30 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -57,7 +57,8 @@ CREATE TABLE IF NOT EXISTS `estoque` (
 --
 
 INSERT INTO `estoque` (`idProduto`, `quantidade`, `preco`) VALUES
-(11, 0, 122);
+(11, 9, 122),
+(10, 7, 155.12);
 
 -- --------------------------------------------------------
 
@@ -93,9 +94,19 @@ INSERT INTO `fornecedor` (`id`, `nome`, `descricao`, `telefone`, `email`) VALUES
 
 DROP TABLE IF EXISTS `itempedido`;
 CREATE TABLE IF NOT EXISTS `itempedido` (
+  `idProduto` bigint NOT NULL,
+  `numeroPedido` bigint NOT NULL,
   `quantidade` int NOT NULL,
   `preco` double NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `itempedido`
+--
+
+INSERT INTO `itempedido` (`idProduto`, `numeroPedido`, `quantidade`, `preco`) VALUES
+(11, 1, 3, 366),
+(10, 1, 5, 775.6);
 
 -- --------------------------------------------------------
 
@@ -106,13 +117,20 @@ CREATE TABLE IF NOT EXISTS `itempedido` (
 DROP TABLE IF EXISTS `pedido`;
 CREATE TABLE IF NOT EXISTS `pedido` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-  `numero` int NOT NULL,
-  `datapedido` int NOT NULL,
-  `dataentrega` int NOT NULL,
+  `numero` bigint NOT NULL,
+  `datapedido` date NOT NULL,
+  `dataentrega` date NOT NULL,
   `situacao` varchar(500) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pedido`
+--
+
+INSERT INTO `pedido` (`id`, `numero`, `datapedido`, `dataentrega`, `situacao`) VALUES
+(12, 1, '2021-06-26', '2021-07-03', 'Novo');
 
 -- --------------------------------------------------------
 

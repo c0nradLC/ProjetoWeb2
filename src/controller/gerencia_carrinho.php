@@ -21,7 +21,7 @@ if(valida_acao_carrinho($acao) ){
                 $dao = $factory->getProdutoDao();
 
 				$produto = $dao->buscaPorIdParaCarrinho($id);
-
+				$_SESSION['quantidade_estoque'] = $produto['quantidade'];
 				$produto["quantidade"] = $qtdProduto;
 
 				adicionar_produto_carrinho($produto);

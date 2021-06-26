@@ -56,7 +56,7 @@ function calcular_total(): float{
 	$total = .0;
 	if( isset($_SESSION['carrinho']) and count($_SESSION['carrinho']) >0 ){
 		foreach ($_SESSION['carrinho'] as $i => $item) {
-			$total += $item['preco'];
+			$total += $item['preco'] * $item['quantidade'];
 		}
 	}
 	return $total;
