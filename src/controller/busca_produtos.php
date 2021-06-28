@@ -45,10 +45,10 @@ if($quantidade_total_registros_encontrados > 0)
   {
     $output .= '
     <tr>
-      <td><a href='.'../controller/gerencia_carrinho.php?acao=adicionar&id='.$row->getId().'><span>Adicionar</span></a></td>
+      <td><a href='.'./informa_quantidade.php?idProduto='.$row->getId().'><span>Adicionar</span></a></td>
       <td>'.$row->getNome().'</td>
       <td>'.$row->getDescricao().'</td>
-      <td><a href='.'../controller/gerencia_carrinho.php?acao=adicionar&id='.$row->getId().'><img src=.'.$row->getFoto().'></a></img></td>
+      <td><a href='.'./informa_quantidade.php?idProduto='.$row->getId().'><img src=.'.$row->getFoto().'></a></img></td>
     </tr>
     ';
   }

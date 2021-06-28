@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+
+    $idProduto = $_GET['idProduto'];
+
+
+?>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +26,6 @@
             include_once "usuario_logado.php";
             ?>
         </header>
-        
         <main>
             <?php
                 include_once "nav.php";
@@ -29,62 +33,26 @@
             <section class="main">
                 <h1>
                     <i class="fas fa-user-plus"></i>
-                    <span>Produtos</span>
+                    <span>Informe a quantidade para o produto</span>
                 </h1>
                     <div class="user">
                         <div class="cad_user">
                             <div class="info_user">
+                            <?php
+                                echo "<form action=\"../controller/gerencia_carrinho.php?acao=adicionar&id=$idProduto\" method=\"POST\">"
+                            ?>
                                 <div class="bxUser">
-                                    <input type="text" name="nome" id="nome" placeholder="Digite o produto que você está buscando">
+                                    <input type="number" name="qtdProduto" id="qtdProduto" placeholder="Quantidade de produto">
                                 </div>
-                                <div class="table-responsive" id="dynamic_content">
-            
+                                <div class="row" style="text-align: right">
+                                    <button class="btn btn-success" type="submit">Adicionar ao carrinho</button>
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>
             </section>
         </main>
-        
     </div>
-    <div class="sairMain">
-        <div class="sair">
-            <p>deseja sair ?</p>
-            <button>Sair</button>
-            <button>Cancelar</button>
-        </div>
-    </div>
-    <script src="../../js/script.js"></script>
 </body>
 </html>
-<script>
-  $(document).ready(function(){
-
-    load_data(1);
-
-    function load_data(page, query = '')
-    {
-      $.ajax({
-        url:"../controller/busca_produtos.php",
-        method:"POST",
-        data:{page:page, query:query},
-        success:function(data)
-        {
-          $('#dynamic_content').html(data);
-        }
-      });
-    }
-
-    $(document).on('click', '.page-link', function(){
-      var page = $(this).data('page_number');
-      var query = $('#nome').val();
-      load_data(page, query);
-    });
-
-    $('#nome').keyup(function(){
-      var query = $('#nome').val();
-      load_data(1, query);
-    });
-
-  });
-</script>

@@ -17,8 +17,13 @@ if(valida_acao_carrinho($acao) ){
 			if (!is_int($id) or $id == 0){
 				die("Parametro Invalido!");
 			}else{
+				$qtdProduto = @$_POST['qtdProduto'];
                 $dao = $factory->getProdutoDao();
+
 				$produto = $dao->buscaPorIdParaCarrinho($id);
+				$_SESSION['quantidade_estoque'] = $produto['quantidade'];
+				$produto["quantidade"] = $qtdProduto;
+
 				adicionar_produto_carrinho($produto);
 				header('Location: ../view/carrinho.php');
 				exit;

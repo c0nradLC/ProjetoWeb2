@@ -97,7 +97,7 @@ class MySqlProdutoDao extends MySqlDao implements ProdutoDao {
 
     public function buscaPorIdParaCarrinho($id) {
         
-        $query = "SELECT id, nome, foto, preco
+        $query = "SELECT id, nome, foto, preco, quantidade
                 FROM " . $this->table_name . 
                 " LEFT JOIN estoque ON estoque.idProduto = produto.id WHERE produto.id = ?";
 
