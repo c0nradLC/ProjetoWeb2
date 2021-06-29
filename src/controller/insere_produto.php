@@ -27,7 +27,7 @@ $produto = new Produto(null, $nome, $descricao, $idFornecedor, $caminho_nome_ima
 $dao = $factory->getProdutoDao();
 $dao->insere($produto);
 
-header("Location: ../view/estoque.php");
+header("Location: ../view/home.php");
 exit;
 
 ?>
