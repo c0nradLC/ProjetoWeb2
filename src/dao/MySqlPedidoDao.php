@@ -124,5 +124,70 @@ class MySqlPedidoDao extends MySqlDao implements PedidoDao {
             return null;
         }
     }
+
+    public function buscaPorNumero($numero, $limit, $offSet)
+    {
+        $pedido = null;
+
+        $query = "select id, numero, datapedido, dataentrega, situacao " .
+        "from pedido " .
+        " WHERE UPPER(numero) LIKE '%".str_replace(' ', '%', strtoupper($numero))."%'" .
+        " LIMIT 1 OFFSET 0";
+     
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $numero);
+        $stmt->execute();
+     
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($row) {
+            $pedido = new Pedido($row['id'],$row['numero'], $row['datapedido'], $row['dataentrega'], $row['situacao']);
+            return $pedido;
+        } 
+        return null;
+    }
+
+    public function buscaQtdPedidos()
+    {
+        $query = " SELECT id, numero, datapedido, dataentrega, situacao " .
+        "FROM pedido";
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+        $qtd_pedido = $stmt->rowCount();
+        return $qtd_pedido;
+    }
+
+    public function buscaQtdPedidosComWhere($numero)
+    {
+        $query = " SELECT id, numero, datapedido, dataentrega, situacao " .
+        "FROM pedido " .
+        "WHERE UPPER(numero) LIKE '%".str_replace(' ', '%', strtoupper($numero))."%'";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $qtd_pedido = $stmt->rowCount();
+        return $qtd_pedido;
+    }
+
+    public function buscaTodosComlimit($limit, $offSet)
+    {
+        $pedidos = array();
+
+        $query = "select id, numero, datapedido, dataentrega, situacao " .
+        "from pedido " .
+        "LIMIT " .$limit. " OFFSET " .$offSet;
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        error_log("---> QUERY = " . $query);
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            extract($row);
+            $pedidos[] = new Pedido($id,$numero,$datapedido,$dataentrega,$situacao);
+        }
+        
+        return $pedidos;
+    }
 }
 ?>
