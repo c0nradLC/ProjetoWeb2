@@ -1,13 +1,13 @@
 <?php
 
 // Métodos de acesso ao banco de dados 
-require "../fachada.php"; 
+require "src/fachada.php"; 
 
 $dao = $factory->getPedidoDao();
 
 $request_method=$_SERVER["REQUEST_METHOD"];
 
-if(!empty($_GET["id"]))
+if(!empty($_GET['id']))
     {
         $id=intval($_GET["id"]);
         $pedidoJSON = $dao->buscaPedidoJSON($id);
