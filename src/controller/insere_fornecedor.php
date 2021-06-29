@@ -15,7 +15,7 @@ $fornecedor = new Fornecedor(null, $nome, $descricao, $telefone, $email);
 $dao = $factory->getFornecedorDao();
 $dao->insere($fornecedor);
 
-header("Location: ../view/fornecedores.php");
+header("Location: ../view/fornecedor.php");
 exit;
 
 ?>

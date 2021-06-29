@@ -85,7 +85,7 @@
                                                 
                                                 echo "<tr>";
                                                 echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='usuario_detalhe.php?id=$usuarioId'><i class='fas fa-pencil-alt' onclick=/></a></td>";
-                                                echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='./src/remove_usuario.php?id=$usuarioId'><i class='fas fa-trash-alt'/></a></td>";
+                                                echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='../controller/remove_usuario.php?id=$usuarioId'><i class='fas fa-trash-alt'/></a></td>";
                                                 echo "<td>" . $usuario->getNome() . "</td>";
                                                 echo "<td>" . $usuario->getEmail() . "</td>";
                                                 echo "<td>" . $usuario->getTelefone() . "</td>";
@@ -111,7 +111,7 @@
                                                 
                                                 echo "<tr>";
                                                 echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='usuario_detalhe.php?id=$usuarioId'><i class='fas fa-pencil-alt' onclick=/></a></td>";
-                                                echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='./src/remove_usuario.php?id=$usuarioId'><i class='fas fa-trash-alt'/></a></td>";
+                                                echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='../controller/remove_usuario.php?id=$usuarioId'><i class='fas fa-trash-alt'/></a></td>";
                                                 echo "<td>" . $usuario->getNome() . "</td>";
                                                 echo "<td>" . $usuario->getEmail() . "</td>";
                                                 echo "<td>" . $usuario->getTelefone() . "</td>";
@@ -131,7 +131,7 @@
 
                                     echo "<tr>";
                                     echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='usuario_detalhe.php?id=$usuarioId'><i class='fas fa-pencil-alt' onclick=/></a></td>";
-                                    echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='./src/remove_usuario.php?id=$usuarioId'><i class='fas fa-trash-alt'/></a></td>";
+                                    echo "<td style='width: 5px; cursor: pointer'><a style='color: black' href='../controller/remove_usuario.php?id=$usuarioId'><i class='fas fa-trash-alt'/></a></td>";
                                     echo "<td>" . $usuario->getNome() . "</td>";
                                     echo "<td>" . $usuario->getEmail() . "</td>";
                                     echo "<td>" . $usuario->getTelefone() . "</td>";
