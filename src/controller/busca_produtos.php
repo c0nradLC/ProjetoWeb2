@@ -43,14 +43,28 @@ if($quantidade_total_registros_encontrados > 0)
 {
   foreach($produtos_buscados as $row)
   {
-    $output .= '
-    <tr>
-      <td><a href='.'./informa_quantidade.php?idProduto='.$row->getId().'><span>Adicionar</span></a></td>
-      <td>'.$row->getNome().'</td>
-      <td>'.$row->getDescricao().'</td>
-      <td><a href='.'./informa_quantidade.php?idProduto='.$row->getId().'><img src=.'.$row->getFoto().'></a></img></td>
-    </tr>
-    ';
+    $daoEstoque = $factory->getEstoqueDao();
+    if ($daoEstoque->verificaSeEstaEmEstoque($row->getId(), 0) == true)
+    {
+      $output .= '
+      <tr>
+        <td><a href='.'./informa_quantidade.php?idProduto='.$row->getId().'><span>Adicionar</span></a></td>
+        <td>'.$row->getNome().'</td>
+        <td>'.$row->getDescricao().'</td>
+        <td><a href='.'./informa_quantidade.php?idProduto='.$row->getId().'><img src=.'.$row->getFoto().'></a></img></td>
+      </tr>
+      ';
+    } else {
+      $output .= '
+      <tr>
+        <td><span>Indisponível</span></td>
+        <td>'.$row->getNome().'</td>
+        <td>'.$row->getDescricao().'</td>
+        <td><img src=.'.$row->getFoto().'></img></td>
+      </tr>
+      ';
+    }
+    
   }
 }
 else

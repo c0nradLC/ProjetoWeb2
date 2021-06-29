@@ -1,4 +1,7 @@
 <?php
+
+    include_once "../controller/comum.php";
+
     echo "    <section class=\"nav\">";
     echo "    <nav>";
     echo "        <div class=\"usuario\">";
@@ -8,7 +11,7 @@
     echo "            <li>";
     echo "                <a href=\"home.php\"";
     echo "                    <i class=\"fas fa-home\"></i>";
-    echo "                    <span>Inicio</span></a>";
+    echo "                    <span>Inicio/Produtos</span></a>";
     echo "                </li>";
     echo "            <li>";
     echo "                <a href=\"usuarios.php\">";
@@ -44,12 +47,19 @@
     echo "                    <span>Cadastrar fornecedor</span>";
     echo "                </a>";
     echo "            </li>";
-    echo "            <li>";
-    echo "                <a href=\"consultaprodutos.php\">";
-    echo "                    <i class='fas fa-truck'></i>";
-    echo "                    <span>Consulta de produtos</span>";
-    echo "                </a>";
-    echo "            </li>";
+    if (is_session_started() == false)
+    {
+        session_start();
+    }
+    if ($_SESSION['permissao_usuario'] == 2)
+    {
+        echo "            <li>";
+        echo "                <a href=\"consultapedidos.php\">";
+        echo "                    <i class='fas fa-book-open'></i>";
+        echo "                    <span>Consulta de pedidos</span>";
+        echo "                </a>";
+        echo "            </li>";
+    }
     echo "              <a href=\"../controller/executa_logout.php\">";
     echo "                      <i class=\"fas fa-sign-out-alt\"></i>";
     echo "                      <span>Sair</span> ";
