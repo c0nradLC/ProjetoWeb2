@@ -1,7 +1,4 @@
 <?php
-
-    include_once "../controller/comum.php";
-
     echo "    <section class=\"nav\">";
     echo "    <nav>";
     echo "        <div class=\"usuario\">";
@@ -53,19 +50,6 @@
     echo "                    <span>Consulta de produtos</span>";
     echo "                </a>";
     echo "            </li>";
-    if (is_session_started() == FALSE)
-    {
-        session_start();
-    }
-    if ($_SESSION["permissao_usuario"] == 2)
-    {
-        echo "            <li>";
-        echo "                <a href=\"consultapedidos.php\">";
-        echo "                    <i class='fas fa-book-open'></i>";
-        echo "                    <span>Consulta de pedidos</span>";
-        echo "                </a>";
-        echo "            </li>";
-    }
     echo "              <a href=\"../controller/executa_logout.php\">";
     echo "                      <i class=\"fas fa-sign-out-alt\"></i>";
     echo "                      <span>Sair</span> ";

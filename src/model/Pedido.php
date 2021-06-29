@@ -1,6 +1,6 @@
 <?php
 
-class Pedido {
+class Fornecedor {
     
     private $id;
     private $numero;
@@ -31,10 +31,10 @@ class Pedido {
 
     public function getSituacao() { return $this->situacao; }
     public function setSituacao($situacao) {$this->situacao = $situacao;}
+}
 
-    public function getDadosParaJSON() {
-        $dados_pedido = ['id' => $this->id, 'numero' => $this->numero, 'datapedido' => $this->datapedido, 'dataentrega' => $this->dataentrega, 'situacao' => $this->situacao];
-        return $dados_pedido;
-    }
+public function getDadosParaJSON() {
+    $dados_pedido = ['id' => $this->id, 'numero' => $this->numero, 'datapedido' => $this->datapedido, 'dataentrega' => $this->dataentrega, 'situacao' => $this->situacao];
+    return $dados_pedido;
 }
 ?>
