@@ -3,7 +3,7 @@
 include_once "../fachada.php";
 include_once "verifica.php";
 
-$acoes_permitidas = array('adicionar','excluir','aplicar-desconto','limpar-carrinho','cadastrar_produto');
+$acoes_permitidas = array('adicionar','excluir','limpar-carrinho','cadastrar_produto');
 
 function valida_acao_carrinho(string $acao): bool{
 	global $acoes_permitidas;
@@ -62,14 +62,7 @@ function calcular_total(): float{
 	return $total;
 }
 
-function aplicar_desconto(float &$valor){
-	$porcentagem = $_SESSION['desconto'] ?? 0;
-	$valor = $valor - ($valor * ($porcentagem/100) );
-
-}
-
 function limpar_carrinho():void{
 	unset($_SESSION['carrinho']);
-	unset($_SESSION['desconto']);
 }
 ?>

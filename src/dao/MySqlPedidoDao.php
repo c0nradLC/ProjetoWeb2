@@ -131,11 +131,11 @@ class MySqlPedidoDao extends MySqlDao implements PedidoDao {
 
         $query = "select id, numero, datapedido, dataentrega, situacao " .
         "from pedido " .
-        " WHERE UPPER(numero) LIKE '%".str_replace(' ', '%', strtoupper($numero))."%'" .
+        " WHERE numero = :numero " .
         " LIMIT 1 OFFSET 0";
      
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $numero);
+        $stmt->bindParam(":numero", $numero);
         $stmt->execute();
      
         $row = $stmt->fetch(PDO::FETCH_ASSOC);

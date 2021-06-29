@@ -35,7 +35,7 @@
         ?>
         <section class="main">
 		</br>
-		<a href="consultaprodutos.php" class="btn btn-warning" role="button">Produtos</a>
+		<a href="home.php" class="btn btn-warning" role="button">Produtos</a>
 		<a href="carrinho.php" class="btn btn-danger" role="button">Meu Carrinho</a>
 		<h1 class="display-1">Produtos do Carrinho</h1>
 		<hr>
@@ -80,17 +80,6 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td colspan="2 " class="text-right">
-							Desconto: 
-						</td>
-						<td colspan="2">
-							<form action="../controller/gerencia_carrinho.php">
-								<input type="hidden" value="aplicar-desconto" name="acao">
-								<input type="text" name="desconto" class="form-control">
-							</form>
-						</td>
-					</tr>
-					<tr>
 						<td colspan="2" class="text-right">
 							<samp class="foat-left">
 								<a href="../controller/gerencia_carrinho.php?acao=limpar-carrinho">Limpar Carrinho</a>
@@ -98,7 +87,7 @@
 							Valor Final: 
 						</td>
 						<td colspan="2">
-							R$ <?php aplicar_desconto($total); echo number_format($total, 2, ',', ''); ?>
+							R$ <?php echo number_format($total, 2, ',', ''); ?>
 						</td>
 					</tr>
 				</tfoot>

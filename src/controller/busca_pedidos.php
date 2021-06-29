@@ -5,9 +5,11 @@ include_once "../fachada.php";
 $dao = $factory->getPedidoDao();
 $quantidade_registros = 0;
 $pedidos_buscados = null;
+$quantidade_total_registros_encontrados = 0;
 
 $limit = '9';
 $page = 1;
+
 if($_POST['page'] > 1)
 {
   $start = (($_POST['page'] - 1) * $limit);

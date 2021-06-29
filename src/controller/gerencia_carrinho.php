@@ -38,12 +38,6 @@ if(valida_acao_carrinho($acao) ){
 				exit;
 			}
 		break;
-		case 'aplicar-desconto':
-			$desc = isset($_GET['desconto'])? (int)$_GET['desconto'] : 0;
-			$_SESSION['desconto'] = $desc;
-			header('Location: ../view/carrinho.php');
-			exit; 	
-		break;
 		case 'limpar-carrinho':
 			limpar_carrinho();
 			header('Location: ../view/carrinho.php');
