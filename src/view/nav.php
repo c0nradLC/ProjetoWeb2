@@ -38,6 +38,12 @@
     echo "                    <span>Cadastrar fornecedor</span>";
     echo "                </a>";
     echo "            </li>";
+    echo "            <li>";
+    echo "                <a href=\"consultaprodutos.php\">";
+    echo "                    <i class='fas fa-box-open'></i>";
+    echo "                    <span>Listagem de produtos</span>";
+    echo "                </a>";
+    echo "            </li>";
     echo "              <a href=\"../controller/executa_logout.php\">";
     echo "                      <i class=\"fas fa-sign-out-alt\"></i>";
     echo "                      <span>Sair</span> ";

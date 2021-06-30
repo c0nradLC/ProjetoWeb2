@@ -92,6 +92,7 @@ class MySqlFornecedorDao extends MySqlDao implements FornecedorDao {
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if($row) {
+            extract($row);
             $fornecedor = new Fornecedor($row['id'],$row['nome'], $row['descricao'], $row['telefone'], $row['email']);
         }
 
