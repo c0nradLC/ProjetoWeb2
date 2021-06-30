@@ -79,6 +79,7 @@
                                             ?>
                                         </select>
                                 </div>
+                                <input type="hidden" name="foto" id="foto" value=<?php echo $produto->getFoto()?>>
                                 <div class="bxUsers" style="padding-top: 10px">
                                     <button style="background-color: red" type="button" onclick="document.location.href='./src/remove_produto.php?id=<?php echo $produtoId; ?>'">Excluir</button>
                                     <button type="submit">Salvar</button>
