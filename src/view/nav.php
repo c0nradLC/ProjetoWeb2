@@ -6,7 +6,7 @@
     echo "        </div>";
     echo "        <ul>";
     echo "            <li>";
-    echo "                <a href=\"home.php\"";
+    echo "                <a href=\"home.php\">";
     echo "                    <i class=\"fas fa-home\"></i>";
     echo "                    <span>Inicio/Produtos</span></a>";
     echo "                </li>";
